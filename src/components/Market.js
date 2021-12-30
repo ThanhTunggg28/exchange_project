@@ -52,7 +52,6 @@ function Market() {
         <div>Name</div>
         <div>Last Price</div>
         <div>24h Change</div>
-        <div>Markets</div>
       </div>
       {orders?.map((result, index) =>
         coin?.map(
