@@ -61,6 +61,9 @@ const MountLangStyled = styled.div`
     padding: 10px;
     display: flex;
     gap: 20px;
+    div {
+      font-size: 14px;
+    }
   }
 `;
 

@@ -3,6 +3,14 @@ import styled from "styled-components";
 import QRCode from "./QRCode";
 import { useState } from "react";
 import MountLang from "./MountLang";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useRouteMatch,
+  useParams,
+} from "react-router-dom";
 
 function Navigation() {
   const [popUpQr, setPopUpQr] = useState(false);
@@ -10,8 +18,12 @@ function Navigation() {
 
   return (
     <NavigationStyled>
-      <div className="nav_login">Login</div>
-      <div className="nav_register">Register</div>
+      <div className="nav_login">
+        <Link to="/login">Login</Link>
+      </div>
+      <div className="nav_register">
+        <Link to="/register">Register</Link>
+      </div>
       <div
         className="nav_dowload"
         onMouseEnter={() => setPopUpQr(true)}

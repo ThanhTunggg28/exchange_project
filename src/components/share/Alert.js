@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import alert from "../image/alert.png";
-import cancle from "../image/cancle.png";
+import alert from "../../image/alert.png";
+import cancle from "../../image/cancle.png";
 
 function Alert() {
   return (
