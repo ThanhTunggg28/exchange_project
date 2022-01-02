@@ -18,7 +18,6 @@ function App() {
         <Alert />
       </Route>
       <Route exact path="/home" component={Header} />
-      <Route exact path="/xx" component={Resgister} />
       <Route exact path="/register" component={Resgister} />
     </div>
   );
