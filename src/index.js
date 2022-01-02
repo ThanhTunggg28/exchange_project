@@ -7,7 +7,7 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import dataReducer from "./components/MyRedux";
+import dataReducer from "./components/share/MyRedux";
 
 const store = configureStore({
   reducer: {

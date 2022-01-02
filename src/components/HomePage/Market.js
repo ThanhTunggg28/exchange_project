@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import coinApi from "./apis/coinApi";
+import coinApi from "../apis/coinApi";
 
 import styled from "styled-components";
 import MarketProduct from "./MarketProduct";
