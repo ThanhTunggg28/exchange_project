@@ -1,6 +1,6 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import Header from "../Header";
+import Header from "../share/Header";
 import Alert from "../share/Alert";
 import styled from "styled-components";
 
