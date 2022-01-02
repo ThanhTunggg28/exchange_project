@@ -18,6 +18,9 @@ const ButtonNonActiveStyled = styled.button`
   height: 100%;
   left: 0;
   top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .text {
     text-align: center;
