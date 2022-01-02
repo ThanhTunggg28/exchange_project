@@ -6,7 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import dataReducer from "./components/MyRedux";
+import dataReducer from "./components/share/MyRedux";
 
 const store = configureStore({
   reducer: {
