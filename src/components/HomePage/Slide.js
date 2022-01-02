@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Image from "./Image";
-import image from "../image/slide.jpg";
-import image2 from "../image/slide2.jpg";
-import image3 from "../image/slide3.jpg";
-import image4 from "../image/slide4.jpg";
+import image from "../../image/slide.jpg";
+import image2 from "../../image/slide2.jpg";
+import image3 from "../../image/slide3.jpg";
+import image4 from "../../image/slide4.jpg";
 
 function Slide() {
   return (

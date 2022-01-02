@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import QRcode from "../image/QRCode.png";
-import Button from "./share/Button";
+import QRcode from "../../image/QRCode.png";
 
 function QRCode({ trigger }) {
   return trigger ? (

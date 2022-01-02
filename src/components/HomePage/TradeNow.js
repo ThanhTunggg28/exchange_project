@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import Button from "./share/Button";
-import ButtonNonActive from "./share/ButtonNonActive";
+import Button from "../share/Button";
+import ButtonNonActive from "../share/ButtonNonActive";
 
 function TradeNow() {
   return (

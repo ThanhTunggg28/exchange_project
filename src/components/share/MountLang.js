@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import languageApi from "../components/apis/languageApi";
-import currencyApi from "./apis/currency";
+import languageApi from "../apis/languageApi";
+import currencyApi from "../apis/currency";
 import Language from "./Language";
-import Currency from "./Currency";
+import Currency from "./";
 
 function MountLang({ trigger }) {
   const [A, setA] = useState(true);

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import styled from "styled-components";
 import BannerCoin from "./BannerCoin";
-import Button from "./share/Button";
+import Button from "./../share/Button";
 
 function Banner() {
   const [orders, setOrders] = useState([]);
