@@ -1,10 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const initialStateValue = "";
-
 export const theCurrency = createSlice({
   name: "theCurrency",
-  initialState: { value: initialStateValue },
+  initialState: { value: "" },
   reducers: {
     getData: (state, action) => {
       state.value = action.payload;

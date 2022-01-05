@@ -7,13 +7,14 @@ import { BrowserRouter, Switch, Route, Link } from "react-router-dom";
 
 import { configureStore } from "@reduxjs/toolkit";
 import { Provider } from "react-redux";
-import dataReducer from "./components/share/MyRedux";
+import store from "./components/app/store";
+// import dataReducer from "./components/share/CurrencySlice";
 
-const store = configureStore({
-  reducer: {
-    theCurrency: dataReducer,
-  },
-});
+// const store = configureStore({
+//   reducer: {
+//     theCurrency: dataReducer,
+//   },
+// });
 
 ReactDOM.render(
   <React.StrictMode>

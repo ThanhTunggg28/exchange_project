@@ -1,44 +1,44 @@
-import React from "react";
-
+import React, { useState } from "react";
 import styled from "styled-components";
 
-import RegisterForm from "./RegisterForm";
-import { register } from "../share/userSlice";
+import LoginForm from "./LoginForm";
+import { login } from "../share/userSlice";
 import { useDispatch } from "react-redux";
 import { unwrapResult } from "@reduxjs/toolkit";
 import { useHistory } from "react-router-dom";
 
-Register.propTypes = {};
+Login.propTypes = {};
 
-function Register(props) {
+function Login() {
+  const [err, setErr] = useState(false);
   const dispatch = useDispatch();
   const history = useHistory();
   const handleSubmit = async (values) => {
-    console.log(values);
     try {
-      const action = register(values);
+      const action = login(values);
       const resultAction = await dispatch(action);
       const user = unwrapResult(resultAction);
+      setErr(false);
     } catch (error) {
       console.log("failed to register", error.message);
+      setErr(true);
     }
   };
   return (
-    <RegisterStyled>
-      <div className="title">Enter Account Detail</div>
-      <div className="detail">
-        Enter your account details and a strong password to secure your account.
-      </div>
-      <RegisterForm onSubmit={handleSubmit} />
-    </RegisterStyled>
+    <LoginStyled>
+      <div className="title">Exchange Account Login</div>
+      <div className="detail">Welcome back! Log In with your Email</div>
+      {err && <div className="err">Tên đăng nhập hoặc mật khẩu chưa đúng</div>}
+      <LoginForm onSubmit={handleSubmit} />
+    </LoginStyled>
   );
 }
 
-const RegisterStyled = styled.div`
+const LoginStyled = styled.div`
   position: relative;
   .title {
     position: absolute;
-    width: 293px;
+    width: auto;
     height: 38px;
     left: 248px;
     top: 162px;
@@ -65,6 +65,22 @@ const RegisterStyled = styled.div`
     color: #474d57;
     text-align: left;
   }
+  .err {
+    position: absolute;
+    width: 373px;
+    height: 40px;
+    left: 248px;
+    top: 240px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: red;
+    text-align: left;
+  }
 `;
 
-export default Register;
+export default Login;

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
-import { getData } from "./MyRedux";
+import { getData } from "./CurrencySlice";
 
 function Currency({ trigger, curr }) {
   const dispatch = useDispatch();
