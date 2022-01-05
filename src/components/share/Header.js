@@ -3,7 +3,11 @@ import styled from "styled-components";
 import Logo from "./Logo";
 import Navigation from "./Navigation";
 
-function Header() {
+import { useSelector, useDispatch } from "react-redux";
+
+Header.propTypes = {};
+
+function Header(props) {
   return (
     <HeaderStyled>
       <Logo />

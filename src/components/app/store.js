@@ -1,8 +1,9 @@
-import userReducer from "../register/userSlice";
-
-const { configureStore } = require("@reduxjs/toolkit");
+import { configureStore } from "@reduxjs/toolkit";
+import userReducer from "../share/userSlice";
+import dataReducer from "../share/CurrencySlice";
 
 const rootReducer = {
+  theCurrency: dataReducer,
   user: userReducer,
 };
 
