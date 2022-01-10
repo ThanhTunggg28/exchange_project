@@ -1,0 +1,62 @@
+.wallet-coin {
+    display: flex;
+  flex-direction: column;
+  gap: 30px;
+  .wallet-event {
+    display: flex;
+    gap: 10px;
+    height: 30px;
+    align-items: center;
+    margin-left: 30px;
+    margin-top: 10px;
+    .wallet-search {
+      height: 100%;
+      width: 150px;
+      padding: 0 10px 0 30px;
+      font-size: 15px;
+    }
+  }
+  .wallet-list {
+    .wallet-list_header {
+      display: flex;
+      gap: 5px;
+      height: 40px;
+      align-items: center;
+      background-color: #eee;
+      text-align: left;
+      div {
+        width: 15%;
+        padding-left: 10px;
+      }
+      .title-action {
+        width: 25%;
+      }
+    }
+    .wallet-list_container {
+      display: flex;
+      gap: 5px;
+      height: 60px;
+      align-items: center;
+      text-align: left;
+      border-bottom: 1px solid;
+      border-color: #eee;
+      div {
+        width: 15%;
+        padding-left: 10px;
+      }
+      .name {
+        display: flex;
+        align-items: center;
+      }
+      .action {
+        width: 25%;
+        display: flex;
+        gap: 20px;
+        a {
+          color: #f0da13;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}

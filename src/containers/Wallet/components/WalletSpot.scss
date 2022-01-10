@@ -1,0 +1,41 @@
+.wallet-spot {
+    width: 87.5%;
+  .header {
+    height: 100px;
+    background-color: #eee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    h2 {
+      padding-left: 30px;
+    }
+    .button {
+      position: relative;
+      top: 10px;
+      display: flex;
+      width: 260px;
+      height: 80px;
+      gap: 25px;
+      .btn_deposit {
+        position: relative;
+        width: 100px;
+        height: 40px;
+      }
+      .btn_withdraw {
+        position: relative;
+        width: 100px;
+        height: 40px;
+      }
+    }
+  }
+  .balance {
+    padding-bottom: 30px;
+    border-bottom: 1px solid;
+    border-color: #eee;
+    .quantity {
+      text-align: left;
+      margin: 10px 0 0 20px;
+      font-size: 30px;
+    }
+  }
+}

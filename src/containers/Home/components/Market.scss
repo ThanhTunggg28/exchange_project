@@ -1,0 +1,28 @@
+.market {
+    position: absolute;
+  top: 856px;
+  display: flex;
+  flex-direction: column;
+  background-color: #eee;
+
+  left: 150px;
+
+  height: 638px;
+  width: 1209px;
+
+  .market_title {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+    text-align: right;
+    div:first-child {
+      text-align: left;
+    }
+    div {
+      padding: 10px 20px 10px 20px;
+    }
+  }
+  a {
+    font-size: 16px;
+    font-weight: bold;
+  }
+}

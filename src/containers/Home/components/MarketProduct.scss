@@ -1,0 +1,20 @@
+.market-product {
+    display: grid;
+  grid-template-columns: 2fr 1fr 1fr 2fr;
+  text-align: right;
+  height: 90px;
+  align-items: center;
+  font-size: 20px;
+  .name_coin {
+    text-align: left;
+    display: flex;
+    gap: 10px;
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+  div {
+    padding: 10px 20px 10px 20px;
+  }
+}

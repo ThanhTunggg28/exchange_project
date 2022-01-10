@@ -1,0 +1,76 @@
+.navigation {
+    .nav_login {
+        position: absolute;
+        width: 39px;
+        height: 16px;
+        left: calc(50% - 39px / 2 + 326.5px);
+        top: 26px;
+    
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .nav_register {
+        position: absolute;
+        width: 52px;
+        height: 16px;
+        left: calc(50% - 52px / 2 + 399px);
+        top: 26px;
+    
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .nav_dowload {
+        position: absolute;
+        width: 70px;
+        height: 16px;
+        left: calc(50% - 70px / 2 + 487px);
+        top: 26px;
+    
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+      }
+      .nav_lang-cur {
+        position: absolute;
+        width: 83px;
+        height: 16px;
+        left: calc(50% - 83px / 2 + 589.5px);
+        top: 26px;
+    
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 14px;
+        line-height: 16px;
+    
+        color: #000000;
+      }
+      .nav_notification {
+        position: absolute;
+        left: 1170px;
+        top: 26px;
+      }
+      .nav_account {
+        position: absolute;
+        left: 1140px;
+        top: 26px;
+      }
+      .profile {
+        position: absolute;
+        z-index: 1;
+        left: 1042px;
+        top: 64px;
+        background-color: #eee;
+        border-radius: 5px;
+        width: 150px;
+        padding: 10px;
+      }
+}
