@@ -1,0 +1,35 @@
+.wallet {
+    position: absolute;
+  top: 120px;
+  left: 50px;
+  width: 90%;
+  display: flex;
+  height: 500px;
+  gap: 10px;
+  .wallet-menu {
+    width: 12.5%;
+    border-right: solid 2px;
+    border-color: #eee;
+    height: 100%;
+    div {
+      padding: 10px 0px 10px 20px;
+      float: left;
+      background-color: #eee;
+      width: 87%;
+      text-align: left;
+      border-left: solid 3px;
+      border-color: #eee;
+    }
+    .active {
+      border-left: solid 3px;
+      border-color: red;
+    }
+    div > h2 {
+      font-size: 15px;
+      margin: 0;
+    }
+  }
+  .wallet-container {
+    width: 87.5%;
+  }
+}

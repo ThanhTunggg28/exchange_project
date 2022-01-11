@@ -1,0 +1,32 @@
+.register {
+    position: relative;
+  .title {
+    position: absolute;
+    width: 293px;
+    height: 38px;
+    left: 248px;
+    top: 162px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 32px;
+    line-height: 37px;
+  }
+  .detail {
+    position: absolute;
+    width: 373px;
+    height: 40px;
+    left: 248px;
+    top: 210px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 16px;
+
+    color: #474d57;
+    text-align: left;
+  }
+}

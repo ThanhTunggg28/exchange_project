@@ -1,0 +1,19 @@
+.slide {
+    position: relative;
+  top: 500px;
+  left: 79px;
+
+  height: 212px;
+
+  .image_child {
+    display: flex;
+    gap: 71px;
+
+    top: 36px;
+    height: 144px;
+    width: 1364px;
+  }
+  .image_child-1 {
+    width: 288px;
+  }
+}

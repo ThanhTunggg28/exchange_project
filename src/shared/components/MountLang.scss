@@ -1,0 +1,21 @@
+.mount_lang_curr {
+    position: absolute;
+  width: 800px;
+  height: 520px;
+  background-color: #eee;
+  left: 600px;
+  top: 60px;
+  z-index: 1;
+  border-radius: 10px;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 16px;
+  .title {
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+  }
+}
