@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import coinApi from "../../../apis/coinApi";
 
-import "./WalletCoin.scss"
+import "./WalletCoin.scss";
 
 function WalletCoin({ wall, showbalance }) {
   const [showSmall, setShowSmall] = useState(false);
@@ -37,7 +37,6 @@ function WalletCoin({ wall, showbalance }) {
               selectShortlistedApplicant(e);
             }}
           />
-          {console.log(showSmall)}
           <label htmlFor="">Hide Small Balance</label>
         </div>
       </div>
@@ -50,7 +49,6 @@ function WalletCoin({ wall, showbalance }) {
           <div className="">BTC Value</div>
           <div className="title-action">Action</div>
         </div>
-        {console.log(wall)}
         {wall?.map((wal, index) =>
           coin?.map(
             (coi) =>
@@ -98,9 +96,11 @@ function WalletCoin({ wall, showbalance }) {
                   )}
                   {!showbalance ? (
                     <div className="value">
-                      {(parseFloat(wal.valuation) *
+                      {(
+                        parseFloat(wal.valuation) *
                         (parseFloat(wal.availableBalance) +
-                          parseFloat(wal.blockedBalance))).toFixed(4)}
+                          parseFloat(wal.blockedBalance))
+                      ).toFixed(4)}
                     </div>
                   ) : (
                     <div className="value">********</div>

@@ -1,0 +1,43 @@
+.transaction-table {
+  .transaction-table_header {
+    margin-top: 30px;
+    margin-left: 30px;
+    display: flex;
+    gap: 5px;
+    height: 40px;
+    align-items: center;
+    background-color: #eee;
+    text-align: left;
+    div {
+      width: 15%;
+      padding-left: 10px;
+    }
+    .col-type {
+      width: 10%;
+    }
+    .col-asset {
+      width: 10%;
+    }
+  }
+  .transaction-table_body {
+    margin-top: 30px;
+    margin-left: 30px;
+    display: flex;
+    gap: 5px;
+    height: 60px;
+    align-items: center;
+    text-align: left;
+    border-bottom: 1px solid;
+    border-color: #eee;
+    div {
+      width: 15%;
+      padding-left: 10px;
+    }
+    .col-type-body {
+      width: 10%;
+    }
+    .col-asset-body {
+      width: 10%;
+    }
+  }
+}
