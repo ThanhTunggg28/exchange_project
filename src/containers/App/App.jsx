@@ -10,10 +10,11 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import HomePage from "../Home/index";
 import Login from "../Login/index";
 import WalletPage from "../Wallet/index";
+import DepositPage from "../Deposit/index";
 
 function App() {
   return (
-    <div className="App" >
+    <div className="App">
       <Header />
       <Alert />
       <Switch>
@@ -22,6 +23,7 @@ function App() {
         <Route exact path="/register" component={Resgister} />
         <Route exact path="/login" component={Login} />
         <Route exact path="/wallet" component={WalletPage} />
+        <Route exact path="/deposit" component={DepositPage} />
       </Switch>
     </div>
   );
