@@ -10,6 +10,10 @@ import "./TransactionTable.scss";
 
 function HistoryTransaction() {
   const [transaction, setTransaction] = useState([]);
+  const [type, setType] = useState("all");
+  const [status, setStatus] = useState("all");
+  const [time, setTime] = useState("all");
+  var transFilter = [];
   useEffect(() => {
     const fetchTransaction = async () => {
       const transactionList = await transactionApi.getAll();
@@ -18,19 +22,65 @@ function HistoryTransaction() {
     fetchTransaction();
   }, []);
 
-  //   State Filter
-  const [type, setType] = useState("all");
-  const [status, setStatus] = useState("all");
+  const filteredDates1 = transaction.filter(
+    (d) =>
+      new Date() - new Date(d.completedDate) < 86400000 &&
+      new Date() - new Date(d.completedDate) > 0
+  );
+  const filteredDates7 = transaction.filter(
+    (d) =>
+      new Date() - new Date(d.completedDate) < 604800000 &&
+      new Date() - new Date(d.completedDate) > 0
+  );
+  const filteredDates30 = transaction.filter(
+    (d) =>
+      new Date() - new Date(d.completedDate) < 2592000000 &&
+      new Date() - new Date(d.completedDate) > 0
+  );
 
-  const transFilter = transaction.filter((result) => {
-    if (status === "all" && type === "all") {
-      return result;
-    } else if (type === "all") {
-      return result.status == status;
-    } else if (status === "all") {
-      return result.type == type;
-    } else return result.type == type && result.status == status;
-  });
+  //   State Filter
+
+  if (time === "all") {
+    transFilter = transaction.filter((result) => {
+      if (status === "all" && type === "all") {
+        return result;
+      } else if (type === "all") {
+        return result.status === status;
+      } else if (status === "all") {
+        return result.type === type;
+      } else return result.type === type && result.status === status;
+    });
+  } else if (time === "oneday") {
+    transFilter = filteredDates1.filter((result) => {
+      if (status === "all" && type === "all") {
+        return result;
+      } else if (type === "all") {
+        return result.status === status;
+      } else if (status === "all") {
+        return result.type === type;
+      } else return result.type === type && result.status === status;
+    });
+  } else if (time === "sevenday") {
+    transFilter = filteredDates7.filter((result) => {
+      if (status === "all" && type === "all") {
+        return result;
+      } else if (type === "all") {
+        return result.status === status;
+      } else if (status === "all") {
+        return result.type === type;
+      } else return result.type === type && result.status === status;
+    });
+  } else if (time === "thirtyday") {
+    transFilter = filteredDates30.filter((result) => {
+      if (status === "all" && type === "all") {
+        return result;
+      } else if (type === "all") {
+        return result.status === status;
+      } else if (status === "all") {
+        return result.type === type;
+      } else return result.type === type && result.status === status;
+    });
+  }
 
   return (
     <div className="transaction-page">
@@ -49,7 +99,8 @@ function HistoryTransaction() {
         </div>
         <div className="box filter-time">
           <label htmlFor="">Time</label>
-          <select name="" id="">
+          <select name="" id="" onChange={(e) => setTime(e.target.value)}>
+            <option value="all">All</option>
             <option value="oneday">Past 1 day</option>
             <option value="sevenday">Past 7 days</option>
             <option value="thirtyday">Past 30 days</option>
@@ -88,7 +139,8 @@ function HistoryTransaction() {
         </div>
         {transFilter?.map((trans, index) => (
           <div key={index} className="transaction-table_body">
-            <div className="col-time-body">{typeof trans.completedDate}</div>
+            <div className="col-time-body">{trans.completedDate}</div>
+
             <div className="col-type-body">{trans.type}</div>
             <div className="col-withdraw-body">Withdraw wallet</div>
             <div className="col-asset-body">USDT</div>
