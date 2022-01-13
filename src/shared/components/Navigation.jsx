@@ -3,6 +3,7 @@ import QRCode from "./QRCode";
 import { useState } from "react";
 import MountLang from "./MountLang";
 import Notification from "./Notification";
+import { useHistory } from "react-router-dom";
 
 import { logout } from "../../redux/userSlice";
 
@@ -15,7 +16,7 @@ import {
 
 import { useDispatch, useSelector } from "react-redux";
 
-import "./Navigation.scss"
+import "./Navigation.scss";
 
 function Navigation() {
   const [popUpQr, setPopUpQr] = useState(false);
@@ -26,10 +27,13 @@ function Navigation() {
   const loggedInUser = useSelector((state) => state.user.current);
   const isLoggedIn = !!loggedInUser;
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleLogOut = () => {
     const action = logout();
+
     dispatch(action);
+    history.push("/");
   };
 
   return (
@@ -99,6 +103,5 @@ function Navigation() {
     </nav>
   );
 }
-
 
 export default Navigation;

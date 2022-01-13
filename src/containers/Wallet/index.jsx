@@ -6,6 +6,7 @@ import WalletSpot from "./components/WalletSpot";
 import Footer from "../../shared/components/Footer"
 
 import "./Wallet.scss"
+import HistoryTransaction from "./components/HistoryTransaction";
 
 function WalletPage() {
   const [menu, setMenu] = useState(true);
@@ -38,7 +39,7 @@ function WalletPage() {
           </div>
         )}
       </div>
-      {menu ? <WalletSpot /> : "xxx"}
+      {menu ? <WalletSpot /> : <HistoryTransaction />}
     </div>
   );
 }

@@ -1,0 +1,49 @@
+.transaction-page {
+  width: 87.5%;
+  .header {
+    height: 100px;
+    display: flex;
+    align-items: center;
+    text-align: left;
+    h2 {
+      padding-left: 30px;
+    }
+    .crypto {
+      margin-left: 30px;
+      padding: 10px;
+      background-color: #eee;
+      border-radius: 5px;
+    }
+  }
+  .filter {
+    margin-left: 30px;
+    display: flex;
+    width: 1000px;
+    justify-content: space-between;
+    .box {
+      display: flex;
+      flex-direction: column;
+      width: 14%;
+      gap: 10px;
+      label {
+        font-size: 16px;
+        font-weight: bold;
+        text-align: left;
+      }
+      select {
+        height: 30px;
+        padding: 0 5px 0 5px;
+        border-radius: 3px;
+        border: 1px solid;
+      }
+    }
+  }
+  .export {
+    margin-top: 50px;
+    text-align: left;
+    margin-left: 30px;
+    label {
+      margin-left: 10px;
+    }
+  }
+}
