@@ -17,6 +17,7 @@ function DepositBody() {
   const [selectCoin, setSelectCoin] = useState("");
   const [toggle, setToggle] = useState(false);
   const [address, setAddress] = useState();
+  const [abc, setAbc] = useState();
   useEffect(() => {
     const fetchAddress = async () => {
       const getAddressWallet = await addressApi.get(selectCoin || "BTC");
