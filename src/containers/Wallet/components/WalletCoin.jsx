@@ -37,8 +37,6 @@ function WalletCoin({ wall, showbalance }) {
     }
   });
 
-  console.log(filterData);
-
   return (
     <div className="wallet-coin">
       <div className="wallet-event">

@@ -13,14 +13,17 @@ function HistoryTransaction() {
   const [type, setType] = useState("all");
   const [status, setStatus] = useState("all");
   const [time, setTime] = useState("all");
+  const [page, setPage] = useState(0);
+
   var transFilter = [];
   useEffect(() => {
     const fetchTransaction = async () => {
-      const transactionList = await transactionApi.getAll();
+      const transactionList = await transactionApi.getAll(page);
       setTransaction(transactionList);
     };
     fetchTransaction();
-  }, []);
+  }, [page]);
+  console.log(page);
 
   const filteredDates1 = transaction.filter(
     (d) =>
@@ -137,7 +140,7 @@ function HistoryTransaction() {
           <div className="col-TxID">TxID</div>
           <div className="col-status">Status</div>
         </div>
-        {transFilter?.map((trans, index) => (
+        {transFilter.reverse()?.map((trans, index) => (
           <div key={index} className="transaction-table_body">
             <div className="col-time-body">{trans.completedDate}</div>
 
@@ -156,6 +159,18 @@ function HistoryTransaction() {
             <div className="col-status-body">{trans.status}</div>
           </div>
         ))}
+      </div>
+      <div className="pagination">
+        <div
+          className="pagination-prev"
+          style={page == 0 ? { backgroundColor: "#eee" } : {}}
+          onClick={page != 0 ? () => setPage(page - 1) : () => {}}
+        >
+          Prev
+        </div>
+        <div className="pagination-next" onClick={() => setPage(page + 1)}>
+          Next
+        </div>
       </div>
     </div>
   );
