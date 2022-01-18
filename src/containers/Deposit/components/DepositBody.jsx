@@ -11,9 +11,6 @@ import { getData } from "../../../redux/coinSlice";
 import "./DepositBody.scss";
 import addressApi from "../../../apis/addressApi";
 
-import { unwrapResult } from "@reduxjs/toolkit";
-import { deposit } from "../../../redux/depositSlice";
-
 function DepositBody(props) {
   const dispatch = useDispatch();
   const [coin, setCoin] = useState([]);
@@ -26,8 +23,7 @@ function DepositBody(props) {
   }, []);
 
   const [selectCoin, setSelectCoin] = useState("");
-  const [address, setAddress] = useState();
-
+  const [address, setAddress] = useState({});
   const [toggle, setToggle] = useState(false);
 
   useEffect(() => {
@@ -42,9 +38,11 @@ function DepositBody(props) {
     };
     fetchAddress();
   }, [selectCoin]);
+  console.log(selectCoin);
+  dispatch(getData(selectCoin || "BTC"));
 
   const schema = yup.object().shape({
-    amount: yup.string().required("Ban chua nhap ten dang nhap"),
+    amount: yup.string().required("Ban chua nhap so luong"),
   });
 
   const {
@@ -54,7 +52,6 @@ function DepositBody(props) {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
   const onLoginSubmit = (data) => {
-    console.log(data);
     const { onSubmit } = props;
     if (onSubmit) {
       onSubmit(data);
@@ -65,7 +62,13 @@ function DepositBody(props) {
     <div className="deposit-body">
       <div className="selectcoin">
         <label htmlFor="">Select Coin</label>
-        <select name="" id="" onChange={(e) => setSelectCoin(e.target.value)}>
+        <select
+          name=""
+          id=""
+          onChange={(e) => {
+            setSelectCoin(e.target.value);
+          }}
+        >
           {coin?.map((coi, index) => (
             <option key={index} value={coi.code}>
               {coi.code} {coi.name}
@@ -77,6 +80,7 @@ function DepositBody(props) {
         <label htmlFor="">Deposit To</label>
         {toggle ? (
           <form className="has-address" onSubmit={handleSubmit(onLoginSubmit)}>
+            <div>{address.address}</div>
             <input
               value={address.address}
               type="text"
@@ -85,7 +89,13 @@ function DepositBody(props) {
             ></input>
             <div className="amount">
               <label htmlFor="">Amount</label>
-              <input type="text" {...register("amount")} />
+              <input
+                type="number"
+                {...register("amount")}
+                style={{
+                  borderColor: errors.amount ? "red" : "",
+                }}
+              />
             </div>
             <div className="tag">
               <label htmlFor="">Tag/Memo</label>

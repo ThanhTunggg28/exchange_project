@@ -11,13 +11,15 @@ Deposit.propTypes = {};
 
 function Deposit() {
   const dispatch = useDispatch();
+  const history = useHistory();
+
+  const data = useSelector((state) => state.theCoin.value);
 
   const handleSubmit = async (values) => {
-    console.log(values);
     try {
-      const action = deposit(values, { coin: "BTC" });
+      const action = deposit({ values, coin: data });
       const resultAction = await dispatch(action);
-      // const user = unwrapResult(resultAction);
+      history.push("/wallet");
     } catch (error) {
       console.log("failed to register", error.message);
     }

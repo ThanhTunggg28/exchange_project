@@ -3,13 +3,11 @@ import { useSelector } from "react-redux";
 import coinApi from "../../../apis/coinApi";
 import MarketProduct from "./MarketProduct";
 
-import "./Market.scss"
+import "./Market.scss";
 
 function Market() {
   const [orders, setOrders] = useState([]);
   const currencyPair = "btcusd";
-
-  // const currencyArray = currencyPair.toUpperCase().match(/.{1,3}/g);
 
   useEffect(() => {
     const subscribe = {
@@ -76,6 +74,5 @@ function Market() {
     </section>
   );
 }
-
 
 export default Market;

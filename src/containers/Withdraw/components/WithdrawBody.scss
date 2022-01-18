@@ -1,4 +1,4 @@
-.deposit-body {
+.withdraw-body {
   position: absolute;
   top: 100px;
   left: 400px;
@@ -19,7 +19,7 @@
       border-radius: 5px;
     }
   }
-  .deposit-to {
+  .withdraw-to {
     display: flex;
     width: 600px;
     justify-content: space-between;
@@ -32,14 +32,23 @@
     .has-address {
       width: 400px;
       border-radius: 5px;
-      height: 300px;
+      height: 350px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       margin-top: 5px;
+
       .address {
-        text-align: left;
-        display: none;
+        display: flex;
+        flex-direction: column;
+        label {
+          font-size: 12px;
+          text-align: left;
+        }
+        input {
+          height: 30px;
+          border-radius: 5px;
+        }
       }
       .amount {
         display: flex;
@@ -51,7 +60,6 @@
         input {
           height: 30px;
           border-radius: 5px;
-          border: solid 2px;
         }
       }
       .tag {
@@ -66,24 +74,9 @@
           border-radius: 5px;
         }
       }
-      .submit-deposit {
+      .submit-withdraw {
         position: relative;
         width: 400px;
-        height: 40px;
-        margin: 20px auto;
-      }
-    }
-    .non-address {
-      width: 400px;
-      border-radius: 5px;
-      height: 250px;
-      background-color: #eee;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      .get-address {
-        position: relative;
-        width: 150px;
         height: 40px;
         margin: 20px auto;
       }

@@ -6,12 +6,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useForm } from "react-hook-form";
 
-import "./LoginForm.scss"
+import "./LoginForm.scss";
 
 function LoginForm(props) {
   const schema = yup.object().shape({
-    email: yup.string().required("Ban chua nhap ten dang nhap"),
-    password: yup.string().required("Ban chua nhap mat khau"),
+    email: yup.string().required("Username not entered"),
+    password: yup.string().required("Password not entered"),
   });
 
   const [showPass, setShowPass] = useState(false);
@@ -81,12 +81,10 @@ function LoginForm(props) {
         <img src={eye} alt="" className="img" onClick={handleShowPass} />
       </div>
       <div className="field">
-        {/* <button type="submit">Đăng nhập</button> */}
         <Button type="submit" name="Log In" />
       </div>
     </form>
   );
 }
-
 
 export default LoginForm;

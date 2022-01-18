@@ -5,6 +5,7 @@ import { faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 
 import "./HistoryTransaction.scss";
 import transactionApi from "../../../apis/transactionApi";
+import coinApi from "../../../apis/coinApi";
 
 import "./TransactionTable.scss";
 
@@ -13,6 +14,8 @@ function HistoryTransaction() {
   const [type, setType] = useState("all");
   const [status, setStatus] = useState("all");
   const [time, setTime] = useState("all");
+  const [asset, setAsset] = useState("all");
+
   const [page, setPage] = useState(0);
 
   var transFilter = [];
@@ -23,7 +26,15 @@ function HistoryTransaction() {
     };
     fetchTransaction();
   }, [page]);
-  console.log(page);
+
+  const [coin, setCoin] = useState([]);
+  useEffect(() => {
+    const fetchCoin = async () => {
+      const coinList = await coinApi.getAll();
+      setCoin(coinList);
+    };
+    fetchCoin();
+  }, []);
 
   const filteredDates1 = transaction.filter(
     (d) =>
@@ -84,6 +95,11 @@ function HistoryTransaction() {
       } else return result.type === type && result.status === status;
     });
   }
+  const filterAssets = transFilter.filter((result) => {
+    if (asset === "all") {
+      return transFilter;
+    } else return result.coinCode === asset;
+  });
 
   return (
     <div className="transaction-page">
@@ -111,8 +127,13 @@ function HistoryTransaction() {
         </div>
         <div className="box filter-asset">
           <label htmlFor="">Asset</label>
-          <select name="" id="">
-            <option value="usdt">USDT</option>
+          <select name="" id="" onChange={(e) => setAsset(e.target.value)}>
+            <option value="all">All</option>
+            {coin?.map((coi, index) => (
+              <option key={index} value={coi.code}>
+                {coi.code}
+              </option>
+            ))}
           </select>
         </div>
         <div className="box filter-status">
@@ -140,13 +161,13 @@ function HistoryTransaction() {
           <div className="col-TxID">TxID</div>
           <div className="col-status">Status</div>
         </div>
-        {transFilter.reverse()?.map((trans, index) => (
+        {filterAssets.reverse()?.map((trans, index) => (
           <div key={index} className="transaction-table_body">
             <div className="col-time-body">{trans.completedDate}</div>
 
             <div className="col-type-body">{trans.type}</div>
             <div className="col-withdraw-body">Withdraw wallet</div>
-            <div className="col-asset-body">USDT</div>
+            <div className="col-asset-body">{trans.coinCode}</div>
             <div className="col-amount-body">{trans.amount}</div>
             <div className="col-destination-body">
               {trans.toAddr.slice(0, 4) + "..." + trans.toAddr.slice(-4)}
