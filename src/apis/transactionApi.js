@@ -1,9 +1,9 @@
 import axiosClient from "./axiosClient.js";
 
 const transactionApi = {
-  getAll(params) {
-    const url = "api/public/transactions";
-    return axiosClient.get(url, { params });
+  getAll(page) {
+    const url = `api/public/transactions?sort=asc&page=${page}`;
+    return axiosClient.get(url);
   },
 };
 

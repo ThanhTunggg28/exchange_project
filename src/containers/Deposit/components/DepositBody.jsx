@@ -2,10 +2,20 @@ import React, { useEffect, useState } from "react";
 import Button from "../../../shared/components/Button";
 import coinApi from "../../../apis/coinApi";
 
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { useForm } from "react-hook-form";
+import { useSelector, useDispatch } from "react-redux";
+import { getData } from "../../../redux/coinSlice";
+
 import "./DepositBody.scss";
 import addressApi from "../../../apis/addressApi";
 
-function DepositBody() {
+import { unwrapResult } from "@reduxjs/toolkit";
+import { deposit } from "../../../redux/depositSlice";
+
+function DepositBody(props) {
+  const dispatch = useDispatch();
   const [coin, setCoin] = useState([]);
   useEffect(() => {
     const fetchCoin = async () => {
@@ -14,10 +24,12 @@ function DepositBody() {
     };
     fetchCoin();
   }, []);
+
   const [selectCoin, setSelectCoin] = useState("");
-  const [toggle, setToggle] = useState(false);
   const [address, setAddress] = useState();
-  const [abc, setAbc] = useState();
+
+  const [toggle, setToggle] = useState(false);
+
   useEffect(() => {
     const fetchAddress = async () => {
       const getAddressWallet = await addressApi.get(selectCoin || "BTC");
@@ -25,13 +37,30 @@ function DepositBody() {
         const getAddressWallet = await addressApi.post(selectCoin || "BTC");
         setAddress(getAddressWallet);
       } else setAddress(getAddressWallet);
-      // const postAddressWallet = await addressApi.post(selectCoin || "BTC");
-      // setAddress(getAddressWallet);
+
       setToggle(false);
     };
     fetchAddress();
   }, [selectCoin]);
-  console.log(address);
+
+  const schema = yup.object().shape({
+    amount: yup.string().required("Ban chua nhap ten dang nhap"),
+  });
+
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm({ resolver: yupResolver(schema) });
+  const onLoginSubmit = (data) => {
+    console.log(data);
+    const { onSubmit } = props;
+    if (onSubmit) {
+      onSubmit(data);
+    }
+  };
+
   return (
     <div className="deposit-body">
       <div className="selectcoin">
@@ -47,20 +76,25 @@ function DepositBody() {
       <div className="deposit-to">
         <label htmlFor="">Deposit To</label>
         {toggle ? (
-          <div className="has-address">
-            <div className="address">{address.address}</div>
+          <form className="has-address" onSubmit={handleSubmit(onLoginSubmit)}>
+            <input
+              value={address.address}
+              type="text"
+              className="address"
+              {...register("address")}
+            ></input>
             <div className="amount">
               <label htmlFor="">Amount</label>
-              <input type="text" />
+              <input type="text" {...register("amount")} />
             </div>
             <div className="tag">
               <label htmlFor="">Tag/Memo</label>
-              <input type="text" />
+              <input type="text" {...register("tag")} />
             </div>
             <div className="submit-deposit">
-              <Button name="Deposit" />
+              <Button type="submit" name="Deposit" />
             </div>
-          </div>
+          </form>
         ) : (
           <div className="non-address">
             <div>No Cardano deposit addresses</div>

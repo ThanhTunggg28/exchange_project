@@ -2,11 +2,10 @@ import React from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { getData } from "../../redux/CurrencySlice";
-import "./Currency.scss"
+import "./Currency.scss";
 
 function Currency({ trigger, curr }) {
   const dispatch = useDispatch();
-
 
   return trigger === false ? (
     <div className="currency_tab">
@@ -23,6 +22,5 @@ function Currency({ trigger, curr }) {
     ""
   );
 }
-
 
 export default Currency;
