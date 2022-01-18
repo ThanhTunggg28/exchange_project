@@ -8,7 +8,6 @@ import "./WalletCoin.scss";
 function WalletCoin({ wall, showbalance }) {
   const [showSmall, setShowSmall] = useState(false);
   const [search, setSearch] = useState("");
-  console.log(search);
 
   const selectShortlistedApplicant = (e) => {
     const checked = e.target.checked;

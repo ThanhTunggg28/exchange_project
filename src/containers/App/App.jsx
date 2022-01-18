@@ -11,6 +11,7 @@ import HomePage from "../Home/index";
 import Login from "../Login/index";
 import WalletPage from "../Wallet/index";
 import DepositPage from "../Deposit/index";
+import WithdrawPage from "../Withdraw/index";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/login" component={Login} />
         <Route exact path="/wallet" component={WalletPage} />
         <Route exact path="/deposit" component={DepositPage} />
+        <Route exact path="/withdraw" component={WithdrawPage} />
       </Switch>
     </div>
   );

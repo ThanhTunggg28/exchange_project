@@ -1,16 +1,11 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import depositApi from "../apis/depositApi";
-import { useSelector, useDispatch } from "react-redux";
 
-export const deposit = createAsyncThunk(
-  "wallet/deposit",
-  async (payload, { coin }) => {
-    const data = await depositApi.post(payload, { coin });
-    console.log(data);
-    console.log(coin);
-    return data;
-  }
-);
+export const deposit = createAsyncThunk("wallet/deposit", async (payload) => {
+  const data = await depositApi.post(payload.values, payload.coin);
+
+  return data;
+});
 
 export const depositSlice = createSlice({
   name: "deposit",
@@ -19,6 +14,7 @@ export const depositSlice = createSlice({
   },
   reducers: {},
   extraReducers: {
+    [deposit.pending]: (state, { meta }) => {},
     [deposit.fulfilled]: (state, action) => {
       state.current = action.payload;
     },

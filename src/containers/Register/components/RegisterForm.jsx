@@ -5,7 +5,7 @@ import eye from "../../../image/eye.png";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 
-import "./RegisterForm.scss"
+import "./RegisterForm.scss";
 
 function RegisterForm(props) {
   const schema = yup.object().shape({
@@ -20,11 +20,11 @@ function RegisterForm(props) {
     password: yup
       .string()
       .required("Please enter your password!!")
-      .min(6, "Mật khẩu tối đa 6 ký tự"),
+      .min(6, "Password must be at least 6 characters"),
     confirmPassword: yup
       .string()
-      .required("Bạn chưa nhập mật khẩu xác nhận")
-      .oneOf([yup.ref("password")], "Xác nhận mật khẩu không đúng!!"),
+      .required("Please verify your password")
+      .oneOf([yup.ref("password")], "Password was wrong!!"),
   });
   const {
     register,
